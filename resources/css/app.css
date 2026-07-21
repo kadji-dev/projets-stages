@@ -1,9 +1,64 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
+/* 1. POLICES LOCALES */
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter-VariableFont_opsz,wght.ttf') format('truetype-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
 
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter-Italic-VariableFont_opsz,wght.ttf') format('truetype-variations');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/fonts/Montserrat-VariableFont_wght.ttf') format('truetype-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/fonts/Montserrat-Italic-VariableFont_wght.ttf') format('truetype-variations');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* 2. CONFIGURATION THEME TAILWIND V4 */
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-sans: 'Inter', sans-serif;
+  --font-display: 'Montserrat', sans-serif;
+
+  --color-primary: #af101a;
+  --color-primary-container: #d32f2f;
+  --color-surface: #fff8f7;
+  --color-surface-container-low: #fff0ef;
+  --color-surface-container-high: #ffe2de;
+  --color-surface-container-lowest: #ffffff;
+  --color-on-surface: #271816;
+  --color-on-surface-variant: #5b403d;
+  --color-secondary-container: #dae2fd;
+  --color-on-secondary-container: #3f465c;
+  --color-inverse-surface: #3e2c2a;
+  --color-outline-variant: #e4beba;
+}
+
+/* 3. CLASSES CUSTOM */
+.glass-card {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(228, 190, 186, 0.4);
+}
+
+.hero-gradient {
+  background: linear-gradient(180deg, rgba(255, 248, 247, 0) 0%, rgba(255, 248, 247, 1) 100%);
 }
