@@ -1,0 +1,14 @@
+[90m= [39m[34;4mApp\Models\Payment[39;24m {#8258
+    [34mid[39m: [35m2[39m,
+    [34menrollment_id[39m: [35m1[39m,
+    [34muser_id[39m: [35m3[39m,
+    [34mtype[39m: [32m"[39m[32m1ère Tranche Scolarité[39m[32m"[39m,
+    [34mamount[39m: [32m"[39m[32m500000.00[39m[32m"[39m,
+    [34mpayment_method[39m: [32m"[39m[32mcash[39m[32m"[39m,
+    [34mreference[39m: [32m"[39m[32mREC-CASH-FCMNBXNX[39m[32m"[39m,
+    [34mtransaction_id[39m: [36mnull[39m,
+    [34mstatus[39m: [32m"[39m[32mapproved[39m[32m"[39m,
+    [34mpaid_at[39m: [32m"[39m[32m2026-08-05 22:53:58[39m[32m"[39m,
+    [34mcreated_at[39m: [32m"[39m[32m2026-08-05 22:53:58[39m[32m"[39m,
+    [34mupdated_at[39m: [32m"[39m[32m2026-08-05 22:53:58[39m[32m"[39m,
+  }

@@ -1,8 +1,8 @@
 <footer class="w-full bg-surface-container-lowest border-t border-outline-variant mt-auto">
     <div class="flex flex-col md:flex-row justify-between items-center py-8 px-6 md:px-12 max-w-7xl mx-auto gap-6">
         <div class="text-center md:text-left">
-            <span class="font-display font-bold text-xl text-on-surface">ESCa</span>
-            <p class="text-xs text-on-surface-variant mt-1">© {{ date('Y') }} ESCa Higher Education Management. Tous droits réservés.</p>
+            <span class="font-display font-bold text-xl text-on-surface">Campus360</span>
+            <p class="text-xs text-on-surface-variant mt-1">© {{ date('Y') }} Campus360 Higher Education Management. Tous droits réservés.</p>
         </div>
         <div class="flex gap-6 text-xs text-on-surface-variant">
             <a href="#" class="hover:underline hover:text-primary">Politique de confidentialité</a>

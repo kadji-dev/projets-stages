@@ -1,5 +1,6 @@
-<x-layouts.app title="ESCa | Excellence Académique & Innovation">
+@extends('layouts.app') {{-- ou le nom de ton layout général --}}
 
+@section('content')
     <x-navbar />
 
     <main>
@@ -14,19 +15,40 @@
             <div class="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12">
                 <div class="max-w-3xl">
                     <h1 class="font-display font-bold text-4xl md:text-5xl text-on-surface mb-6 leading-tight">
-                        Construisez votre avenir <br class="hidden md:block"/> à l' <span class="text-primary">ESCa</span>
+                        Construisez votre avenir <br class="hidden md:block"/> avec <span class="text-primary">Campus360</span>
                     </h1>
                     <p class="text-lg text-on-surface-variant mb-8 max-w-xl">
                         Rejoignez une institution d'excellence où l'innovation technologique rencontre la rigueur académique pour former les leaders de demain.
                     </p>
+
+                    <!-- Boutons d'action dynamiques selon l'état de connexion -->
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="#" class="bg-primary text-white px-8 py-4 rounded-lg font-medium shadow-lg hover:shadow-primary/30 active:scale-95 transition-all flex items-center justify-center gap-2">
-                            S'inscrire (Nouveau Candidat)
-                            <span class="material-symbols-outlined">arrow_forward</span>
-                        </a>
-                        <a href="#" class="border-2 border-on-surface text-on-surface px-8 py-4 rounded-lg font-medium hover:bg-on-surface hover:text-white active:scale-95 transition-all flex items-center justify-center">
-                            Se connecter
-                        </a>
+                            @auth
+                            {{-- Si l'utilisateur est connecté --}}
+                            @if(auth()->user()->isAdmin())
+                                <a href="{{ route('staff-dashboard.dashboard') }}" class="bg-primary text-white px-8 py-4 rounded-lg font-medium shadow-lg hover:shadow-primary/30 active:scale-95 transition-all flex items-center justify-center gap-2">
+                                    Espace Administration
+                                    <span class="material-symbols-outlined">admin_panel_settings</span>
+                                </a>
+                            @else
+                                <a href="{{ route('student-dashboard.dashboard') }}" class="bg-primary text-white px-8 py-4 rounded-lg font-medium shadow-lg hover:shadow-primary/30 active:scale-95 transition-all flex items-center justify-center gap-2">
+                                    Accéder à mon espace Étudiant
+                                    <span class="material-symbols-outlined">dashboard</span>
+                                </a>
+                            @endif
+                        @else
+                            {{-- Si le visiteur n'est pas connecté --}}
+                            @if (Route::has('register'))
+                                <a href="{{ route('register') }}" class="bg-primary text-white px-8 py-4 rounded-lg font-medium shadow-lg hover:shadow-primary/30 active:scale-95 transition-all flex items-center justify-center gap-2">
+                                    S'inscrire (Nouveau Candidat)
+                                    <span class="material-symbols-outlined">arrow_forward</span>
+                                </a>
+                            @endif
+
+                            <a href="{{ route('login') }}" class="border-2 border-on-surface text-on-surface px-8 py-4 rounded-lg font-medium hover:bg-on-surface hover:text-white active:scale-95 transition-all flex items-center justify-center">
+                                Se connecter
+                            </a>
+                        @endauth
                     </div>
                 </div>
             </div>
@@ -39,7 +61,7 @@
                 </div>
                 <div class="glass-card p-6 rounded-xl text-center min-w-[140px]">
                     <div class="text-primary font-display font-bold text-3xl">2500+</div>
-                    <div class="text-on-surface-variant text-xs font-semibold mt-1">Alumni</div>
+                    <div class="text-on-surface-variant text-xs font-semibold mt-1">anciens étudiants</div>
                 </div>
             </div>
         </section>
@@ -65,11 +87,11 @@
             </div>
         </section>
 
-        <!-- Why ESCa Section -->
-        <section class="py-20 bg-surface-container-lowest">
+        <!-- Why Campus360 Section -->
+        <section class="py-20 bg-surface-container-lowest" id="about">
             <div class="max-w-7xl mx-auto px-6 md:px-12">
                 <div class="text-center mb-16">
-                    <h2 class="font-display font-bold text-3xl text-on-surface">Pourquoi choisir l'ESCa ?</h2>
+                    <h2 class="font-display font-bold text-3xl text-on-surface">Pourquoi choisir l'Campus360 ?</h2>
                     <div class="w-16 h-1 bg-primary mx-auto mt-4 rounded-full"></div>
                 </div>
 
@@ -119,9 +141,20 @@
                     <div class="absolute top-0 right-0 w-64 h-64 bg-primary/20 blur-[100px] rounded-full"></div>
                     <h2 class="text-white font-display font-bold text-3xl md:text-4xl mb-4">Prêt à transformer votre carrière ?</h2>
                     <p class="text-white/70 text-base max-w-2xl mx-auto mb-8">Les admissions pour la rentrée académique sont ouvertes. Ne manquez pas l'opportunité de rejoindre l'élite.</p>
+
                     <div class="flex flex-wrap justify-center gap-4">
-                        <a href="#" class="bg-primary text-white px-8 py-4 rounded-lg font-bold hover:scale-105 transition-transform active:scale-95">S'inscrire maintenant</a>
-                        <a href="#" class="border border-white/30 text-white px-8 py-4 rounded-lg font-bold hover:bg-white/10 transition-all">Consulter la brochure</a>
+                        @auth
+                            @if(auth()->user()->isStudent())
+                                <a href="{{ route('student-dashboard.dashboard') }}" class="bg-primary text-white px-8 py-4 rounded-lg font-bold hover:scale-105 transition-transform active:scale-95">Mon Espace Étudiant</a>
+                            @else
+                                <a href="{{ route('staff-dashboard.dashboard') }}" class="bg-primary text-white px-8 py-4 rounded-lg font-bold hover:scale-105 transition-transform active:scale-95">Tableau de bord Admin</a>
+                            @endif
+                        @else
+                            @if (Route::has('register'))
+                                <a href="{{ route('register') }}" class="bg-primary text-white px-8 py-4 rounded-lg font-bold hover:scale-105 transition-transform active:scale-95">S'inscrire maintenant</a>
+                            @endif
+                            <a href="{{ route('login') }}" class="border border-white/30 text-white px-8 py-4 rounded-lg font-bold hover:bg-white/10 transition-all">Se connecter</a>
+                        @endauth
                     </div>
                 </div>
             </div>
@@ -130,4 +163,4 @@
 
     <x-footer />
 
-</x-layouts.app>
+@endsection

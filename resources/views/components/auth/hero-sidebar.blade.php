@@ -5,11 +5,12 @@
     </div>
 
     <!-- Carte Glassmorphic -->
+    
     <div class="relative z-10 p-8 max-w-lg">
         <div class="glass-card p-8 rounded-2xl shadow-2xl">
             <span class="text-primary font-bold text-xs tracking-widest uppercase mb-2 block">Excellence & Leadership</span>
             <h1 class="font-display font-bold text-4xl text-on-surface mb-4 leading-tight">
-                Façonnez votre futur à ESCa.
+                Façonnez votre futur à Campus360.
             </h1>
             <p class="text-on-surface-variant text-base mb-6">
                 Rejoignez une communauté d'élite où l'innovation académique rencontre l'excellence managériale.

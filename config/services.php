@@ -35,4 +35,10 @@ return [
         ],
     ],
 
+    'geniuspay' => [
+    'public_key' => env('GENIUSPAY_PUBLIC_KEY'),
+    'secret_key' => env('GENIUSPAY_SECRET_KEY'),
+    'base_url'   => env('GENIUSPAY_BASE_URL', 'https://sandbox.geniuspay.io/api/v1'),
+    'callback_url' => env('GENIUSPAY_CALLBACK_URL'),
+],
 ];
